@@ -11,10 +11,5 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.get("https://www.the-gym.rw/");
 //        driver.findElement(requirer).click();
-//        homePage = new HomePage(driver);
-    }
-        public static void main(String[] args){
-        BaseTest test= new BaseTest();
-        test.setUp();
     }
 }
