@@ -12,4 +12,9 @@ public class BaseTest {
         driver.get("https://www.the-gym.rw/");
 //        driver.findElement(requirer).click();
     }
+
+        public static void main(String[] args){
+        BaseTest test= new BaseTest();
+        test.setUp();
+    }
 }
