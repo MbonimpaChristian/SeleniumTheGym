@@ -4,23 +4,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class Alerts {
     private WebDriver driver;
-    private By triggerAlertsButton = By.xpath(".//button[text() = 'Click Me']");
-    private By triggerConfirmButton = By.xpath(".//button[text() = 'Click Me']");
-    private By triggerPromptButton = By.xpath(".//button[text() = 'Click Me']");
-    private By results = By.id("result");
+    private By triggerPromptButton = By.cssSelector("button[type ='button']");
+
+    private By results = By.id("confirm-demo");
 //
     public Alerts(WebDriver driver) {
+
         this.driver = driver;
     }
 //
     public void triggerAlert() {
-        driver.findElement(triggerAlertsButton).click();
+        driver.findElements(triggerPromptButton).get(0).click();
+        driver.switchTo().alert().accept();
     }
     public void triggerConfirm() {
-        driver.findElement(triggerConfirmButton).click();
+        driver.findElements(triggerPromptButton).get(1).click();
+        driver.switchTo().alert().accept();
     }
     public void triggerPrompt() {
-        driver.findElement(triggerPromptButton).click();
+
+        driver.findElements(triggerPromptButton).get(2).click();
+        driver.switchTo().alert().accept();
     }
 //
     public void alert_clickToAccept() {
