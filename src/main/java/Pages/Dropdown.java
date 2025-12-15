@@ -10,19 +10,27 @@ import java.util.stream.Collectors;
 
 public class Dropdown {
     private WebDriver driver;
-    private By dropdown = By.linkText("Platform");
+
 
     public Dropdown(WebDriver driver){
+
         this.driver = driver;
     }
-    public void selectFromDropdown(String option){findDropDownElement().selectByVisibleText(option);
+    public void selectFromDropdown() {
+        WebElement dropdown = driver.findElement(By.cssSelector("a[href='https://www.lambdatest.com/kane-ai']"));
+        dropdown.click();
+//        Select select = new Select(dropdown);
+//        select.getFirstSelectedOption().click();
     }
-    public List<String> getSelectedOptions(){
-        List<WebElement> selectedElements = findDropDownElement().getAllSelectedOptions();
-        return selectedElements.stream().map(e->e.getText()).collect(Collectors.toList());
-    }
-    private Select findDropDownElement(){
-        return new Select(driver.findElement(dropdown));
-    }
+
+//    public List<String> getSelectedOptions(){
+//        List<WebElement> selectedElements = findDropDownElement().getAllSelectedOptions();
+//        return selectedElements.stream().map(e->e.getText()).collect(Collectors.toList());
+//    }
+//    private Select findDropDownElement(){
+//
+//        return new Select(driver.findElement(dropdown));
+//    }
+
 
 }
